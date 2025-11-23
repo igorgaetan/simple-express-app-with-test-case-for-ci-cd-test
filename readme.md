@@ -42,7 +42,7 @@ my-express-app/
 
 ### 1. Cloner le projet
 ```bash
-git clone 
+git clone https://github.com/igorgaetan/simple-express-app-with-test-case-for-ci-cd-test.git
 cd my-express-app
 ```
 
@@ -124,11 +124,9 @@ Elle permet de tester rapidement l’API.
 
 ## ⚙️ Technologies utilisées
 - **Node.js + Express**
-- **MongoDB + mongoose**
+- **sqlite**
 - **Jest + Supertest**
-- **mongodb-memory-server**
 - **Docker**
-- **Vue.js (CDN)**
 - **pdfkit** (rapport PDF)
 - **ESM** (`type: module`)
 
@@ -138,5 +136,3 @@ Elle permet de tester rapidement l’API.
 Les contributions sont les bienvenues ! **Forkez**, créez une branche et ouvrez une **pull request**.
 ```
 
----
-N’hésite pas si tu veux ajouter ou modifier des sections ! 😊
