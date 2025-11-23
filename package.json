@@ -1,0 +1,24 @@
+{
+    "name": "my-express-app",
+    "version": "1.0.0",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server.js",
+        "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
+        "test:report": "npm test && node generate-test-report.js"
+    },
+    "dependencies": {
+        "ejs": "^3.1.10",
+        "express": "^4.19.0",
+        "pdfkit": "^0.17.2",
+        "sequelize": "^6.36.0",
+        "sqlite3": "^5.1.6",
+        "xml2js": "^0.6.2"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "jest-junit": "^16.0.0",
+        "supertest": "^6.3.3"
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="1.258">
+  <testsuite name="User API tests" errors="0" failures="0" skipped="0" timestamp="2025-11-23T13:31:52" time="1.18" tests="5">
+    <testcase classname="User API tests Create user" name="User API tests Create user" time="0.051">
+    </testcase>
+    <testcase classname="User API tests Get all users" name="User API tests Get all users" time="0.013">
+    </testcase>
+    <testcase classname="User API tests Prevent duplicate email" name="User API tests Prevent duplicate email" time="0.01">
+    </testcase>
+    <testcase classname="User API tests Create another user" name="User API tests Create another user" time="0.014">
+    </testcase>
+    <testcase classname="User API tests Check user count" name="User API tests Check user count" time="0.005">
+    </testcase>
+  </testsuite>
+</testsuites>
