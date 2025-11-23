@@ -1,18 +1,16 @@
-# Base image
-FROM node:22-alpine
+FROM node:22-bullseye
 
-# Create app directory
 WORKDIR /app
 
-# Install dependencies
+# Copier package.json + package-lock.json
 COPY package*.json ./
-RUN npm install --production
 
-# Copy app files
+# Installer les dépendances
+RUN npm install
+
+# Copier le reste des fichiers
 COPY . .
 
-# Expose port
 EXPOSE 3000
 
-# Run server
 CMD ["node", "server.js"]
