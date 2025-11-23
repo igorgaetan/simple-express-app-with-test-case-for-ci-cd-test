@@ -30,34 +30,51 @@ jobs:
 
       # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # 4️⃣ Run tests
       - name: Run Jest tests
         run: npm test
 
-      # 5️⃣ Generate test report PDF
+      # 5️⃣ Create reports directory
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      # 6️⃣ Generate test report PDF
       - name: Generate PDF report
         run: npm run test:report
 
-      # 6️⃣ Upload PDF as artifact
+      # 7️⃣ Verify PDF exists
+      - name: Check if PDF was generated
+        run: |
+          if [ -f "reports/test-report.pdf" ]; then
+            echo "✅ PDF report generated successfully"
+            ls -la reports/
+          else
+            echo "❌ PDF report not found"
+            ls -la reports/ || echo "Reports directory doesn't exist"
+            exit 1
+          fi
+
+      # 8️⃣ Upload PDF as artifact
       - name: Upload PDF report
         uses: actions/upload-artifact@v4
         with:
           name: jest-pdf-report
           path: reports/test-report.pdf
+          retention-days: 30
 
-      # 7️⃣ Build Docker image
+      # 9️⃣ Build Docker image
       - name: Build Docker image
         run: docker build -t $DOCKER_HUB_USERNAME/$IMAGE_NAME:latest .
 
-      # 8️⃣ Log in to Docker Hub
+      # 🔟 Log in to Docker Hub
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      # 9️⃣ Push Docker image
+      # 1️⃣1️⃣ Push Docker image
       - name: Push Docker image to Docker Hub
         run: docker push $DOCKER_HUB_USERNAME/$IMAGE_NAME:latest
